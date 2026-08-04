@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="icon" type="image/png" href="aerox.png">
+    <title>Biografia - Moisés Bandeira | Hoje</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #111113;
+            color: #e1e1e6;
+            line-height: 1.7;
+            padding: 20px 10px;
+        }
+
+        #all {
+            max-width: 960px;
+            margin: 0 auto;
+            background-color: #18181c;
+            border: 1px solid #2d2d35;
+            border-radius: 14px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+        }
+
+        header {
+            background-color: #0b0b0d;
+            padding: 18px 15px;
+            border-bottom: 2px solid #2a2a32;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        ul.menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            list-style: none;
+        }
+
+        ul.menu li a {
+            color: #a0a0b0;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        ul.menu li a:hover,
+        ul.menu li a.active {
+            background-color: #2a2a34;
+            color: #ffffff;
+        }
+
+        ul.menu li a.btn-contato {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        ul.menu li a.btn-contato:hover,
+        ul.menu li a.btn-contato.active {
+            background-color: #cccccc;
+            color: #000000;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        h1.title-main {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #ffffff;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .subtitle-main {
+            text-align: center;
+            color: #888899;
+            font-size: 0.98rem;
+            max-width: 720px;
+            margin: 0 auto 20px auto;
+        }
+
+        /* Banner de Citação */
+        .quote-banner {
+            background: linear-gradient(135deg, #1f1f26, #141418);
+            border: 1px solid #3d3d4a;
+            border-left: 5px solid #ffffff;
+            border-radius: 10px;
+            padding: 24px;
+            margin: 20px 0 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        .quote-banner p {
+            color: #f0f0f5;
+            font-size: 1.1rem;
+            font-style: italic;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .quote-banner span.author {
+            display: block;
+            margin-top: 12px;
+            font-size: 0.88rem;
+            font-style: normal;
+            font-weight: bold;
+            color: #8a8a9e;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #2e2e38;
+            margin: 35px 0;
+        }
+
+        .section-card {
+            background-color: #212127;
+            border: 1px solid #31313a;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+            scroll-margin-top: 85px;
+        }
+
+        .section-card h2 {
+            color: #ffffff;
+            font-size: 1.65rem;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #3a3a46;
+            padding-bottom: 14px;
+        }
+
+        .section-card p {
+            color: #cccccc;
+            font-size: 1rem;
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+
+        /* Caixas Internas de Destaque */
+        .key-box {
+            background-color: #151518;
+            border: 1px solid #2d2d38;
+            border-left: 4px solid #ffffff;
+            padding: 22px;
+            border-radius: 0 10px 10px 0;
+            margin: 22px 0;
+        }
+
+        .story-box {
+            background-color: #1a171d;
+            border: 1px solid #3d3142;
+            border-left: 4px solid #d182ff;
+            padding: 22px;
+            border-radius: 10px;
+            margin: 22px 0;
+        }
+
+        .project-box {
+            background-color: #17171e;
+            border: 1px solid #383846;
+            border-left: 4px solid #7289da;
+            padding: 22px;
+            border-radius: 10px;
+            margin: 22px 0;
+        }
+
+        .future-box {
+            background-color: #141a1a;
+            border: 1px solid #2c3e3e;
+            border-left: 4px solid #4deeea;
+            padding: 22px;
+            border-radius: 10px;
+            margin: 22px 0;
+        }
+
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        @media (max-width: 600px) {
+            .scenario-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .scenario-card {
+            background-color: #18181e;
+            border: 1px solid #2d2d38;
+            border-radius: 10px;
+            padding: 22px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .scenario-card:hover {
+            transform: translateY(-3px);
+            border-color: #525266;
+        }
+
+        .scenario-card h3 {
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .scenario-card p {
+            color: #bbbbcc;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .key-badge {
+            display: inline-block;
+            background-color: #31313d;
+            color: #ffffff;
+            font-size: 0.8rem;
+            font-weight: bold;
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-top: 10px;
+            border: 1px solid #4a4a58;
+        }
+
+        .yt-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #ff0000;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.88rem;
+            padding: 10px 20px;
+            border-radius: 6px;
+            margin-top: 14px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .yt-btn:hover {
+            background-color: #cc0000;
+            transform: translateY(-2px);
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .skills-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 18px;
+            color: #dddddd;
+            font-size: 1rem;
+        }
+
+        .skills-list li::before {
+            content: "•";
+            position: absolute;
+            left: 8px;
+            color: #9999aa;
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        /* Seção de Contato Simples */
+        #contato {
+            scroll-margin-top: 85px;
+            margin-bottom: 30px;
+        }
+
+        .contact-box {
+            background-color: #212127;
+            border: 1px solid #31313a;
+            border-radius: 10px;
+            padding: 25px;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            color: #ffffff;
+            font-weight: bold;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            background-color: #18181c;
+            border: 1px solid #3d3d4a;
+            border-radius: 6px;
+            color: #ffffff;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-enviar {
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-enviar:hover {
+            background-color: #cccccc;
+        }
+
+        /* Âncoras para Voltar ao Topo */
+        .container-ancora {
+            text-align: right;
+            margin: 22px 0 0 0;
+            padding-right: 5px;
+        }
+
+        .ancora {
+            color: #aaaaaa;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: bold;
+            transition: color 0.2s;
+            display: inline-block;
+        }
+
+        .ancora:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* Cards de Navegação da Home */
+        .nav-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .nav-card-item {
+            background-color: #212127;
+            border: 1px solid #31313a;
+            border-radius: 12px;
+            padding: 24px;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            display: block;
+        }
+
+        .nav-card-item:hover {
+            transform: translateY(-4px);
+            border-color: #525266;
+        }
+
+        .nav-card-item h3 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-card-item p {
+            color: #a0a0b0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #0b0b0d;
+            border-top: 1px solid #2a2a32;
+            padding: 25px 15px;
+            text-align: center;
+        }
+
+        footer h5 {
+            color: #888899;
+            font-weight: normal;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        .mj-marquee {
+            max-width: 380px;
+            margin: 0 auto 10px auto;
+            color: #cccccc;
+            font-size: 0.85rem;
+        }
+
+        .custom-toast {
+            display: none;
+            background-color: #1b4d2e;
+            color: #ffffff;
+            border: 1px solid #2e7d32;
+            padding: 12px 18px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body id="topo">
+
+    <div id="all">
+        <header>
+            <ul class="menu">
+                <li><a href="index.html" class="">Home</a></li>
+                <li><a href="passado.html" class="">Passado</a></li>
+                <li><a href="hoje.html" class="active">Hoje</a></li>
+                <li><a href="futuro.html" class="">Futuro</a></li>
+                <li><a href="contato.html" class="btn-contato ">Contato</a></li>
+            </ul>
+        </header>
+
+        <main class="content">
+            <h1 class="title-main">Biografia - Moisés Bandeira</h1>
+            <p class="subtitle-main">
+                Uma jornada biográfica dividida em três fases: as origens na infância, as criações do presente e a visão reflexiva para o amanhã.
+            </p>
+
+            <!-- Banner da Frase Clássica -->
+            <div class="quote-banner">
+                <p>"não deixe que coisas do seu dia a dia apagaguem sua luz, por que você é a unica que pode acender💫"</p>
+                <span class="author">— Moisés Bandeira</span>
+            </div>
+            
+            <hr>
+
+            <section id="hoje" class="section-card">
+                <h2><span>🎨</span> 2. Hoje: Habilidades, Kemi IA e Processo Criativo</h2>
+
+                <p>
+                    Atualmente, canalizo minha energia criativa em múltiplas frentes tecnológicas e artísticas. Em vez de me limitar a apenas uma área, desenvolvo projetos interativos onde posso aprender constantemente:
+                </p>
+
+                <!-- Projeto Kemi IA -->
+                <div class="project-box">
+                    <h3 style="color: #ffffff; font-size: 1.2rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                        🤖 Projeto de Maior Orgulho: Kemi IA
+                    </h3>
+                    <p style="color: #dddddd; margin-bottom: 12px;">
+                        O projeto que mais me dá orgulho hoje foi ter criado a <b>Kemi IA</b> — uma inteligência artificial desenvolvida para ajudar as pessoas a tirarem dúvidas, realizarem tarefas e aprenderem.
+                    </p>
+                    <p style="color: #cccccc; margin-bottom: 0; font-size: 0.95rem;">
+                        Estou trabalhando continuamente no desenvolvimento da Kemi IA para que ela receba novas funções e ganhe versões personalizadas para públicos específicos!
+                    </p>
+                </div>
+
+                <p style="margin-bottom: 12px; font-weight: bold; color: #ffffff;">
+                    O que faço hoje no meu dia a dia:
+                </p>
+
+                <ul class="skills-list">
+                    <li>
+                        🎵 <b>Composição Musical:</b> Crio arranjos e melodias para expressar sentimentos e atmosferas únicas.
+                    </li>
+                    <li>
+                        💻 <b>Criação de Jogos e Sites:</b> Programo interfaces responsivas, lógica de sistemas e experiências interativas.
+                    </li>
+                    <li>
+                        ✏️ <b>Desenho e Ilustração:</b> Rascunho artes conceituais e designs para compor meus trabalhos visuais.
+                    </li>
+                    <li>
+                        🕺 <b>Imitador de MJ (Michael Jackson):</b> Aperfeiçoo a dança, o ritmo e a presença de palco do Rei do Pop.
+                    </li>
+                </ul>
+
+                <!-- Reflexão do Eu do Futuro -->
+                <div class="future-box">
+                    <h3 style="color: #ffffff; font-size: 1.1rem; margin-bottom: 10px;">
+                        🧠 O Processo Criativo & O "Eu do Futuro":
+                    </h3>
+                    <p style="color: #e0fbfb; margin-bottom: 12px;">
+                        A sensação durante a criação é curiosa: no exato momento em que estou fazendo algo, costumo pensar que aquilo não vai fazer sucesso de jeito nenhum ou que não ficou bom.
+                    </p>
+                    <p style="color: #ffffff; font-weight: bold; margin-bottom: 0;">
+                        Porém, muito tempo depois, o "eu do futuro" estuda o "eu do passado" para tentar replicar aquela estética única que tinha feito! Chego até a me arrepender por não ter explorado aquela ideia com mais força na época. Hoje sinto que está bom... mas sei que daria para fazer muito mais! :]
+                    </p>
+                </div>
+
+                <div class="container-ancora">
+                    <a href="#topo" class="ancora">Voltar ao topo ↑</a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="mj-marquee">
+                <marquee scrollamount="4">
+                    🕺 <b>HE-HE!</b> (Imitador de MJ) 🎩✨ <i>Moonwalking into the future...</i>
+                </marquee>
+            </div>
+            <h5>Moisés Bandeira 2026 - Todos os direitos reservados<br>Trabalho acadêmico sem fins lucrativos</h5>
+        </footer>
+    </div>
+</body>
+</html>
